@@ -53,8 +53,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: test3
-          environment_name: Test3-env
+          application_name: mobileto-web
+          environment_name: Mobileto-web-env
           version_label: '${{ steps.timestamp.outputs.date }}'
           region: ap-southeast-1
           deployment_package: deploy.zip
