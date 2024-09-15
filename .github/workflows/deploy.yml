@@ -56,5 +56,5 @@ jobs:
           application_name: mobileto-web
           environment_name: Mobileto-web-env
           version_label: '${{ steps.timestamp.outputs.date }}'
-          region: ap-southeast-1
+          region: us-east-1
           deployment_package: deploy.zip
