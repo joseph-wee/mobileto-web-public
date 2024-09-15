@@ -1,118 +1,226 @@
+import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+import { btn_instagram, btn_mail, logo_mobileto, logo_teambro } from "@/assets";
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Head>
+        <title>Mobileto</title>
+        <meta name="description" content="repunch web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:image"
+          content="https://sayyo-file-dev.s3.ap-southeast-1.amazonaws.com/testImage.png"
+        />
+        {/* <meta
+          property="og:image"
+          content="https://d1vnx0h70erqwv.cloudfront.net/_next/static/media/logo_mobileto.97fc625a.png"
+        /> */}
+        <meta property="og:title" content="Mobileto" />
+
+        {/* //카카오톡에 링크를 전송하면 보이는 내용을 text로 설정 */}
+        <meta property="og:description" content="og text" />
+        <link rel="icon" href="/favicon.ico" />
+
+        {/** 1. 즐겨찾기 아이콘?  2.아이패드 아이콘?*/}
+        {/* <link rel="shortcut icon" href="http://test.repunch.io/favicon.ico" />
+        
+        <link
+          rel="apple-touch-startup-image"
+          href="http://test.repunch.io/favicon.ico"
+        /> */}
+
+        {/** 안드로이드 현재 폰에서는 되는중 탭안되면 고해상도 아이콘 소스코드 추가하면 될 듯? */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" />
+
+        {/** 테마랑 타이틀 관련 컬러인 듯? 나중에 필요하면 참고해서 적용 */}
+        {/* <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ae4dvc" /> */}
+      </Head>
+      <div className="relative text-[#FFFDFD] font-Inter overflow-x-hidden">
+        {/** bg video */}
+        {Math.floor(Math.random() * 2) ? (
+          <div className="md:w-[1180px]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full top-0 left-0"
+            >
+              <source src="video_0.mp4" type="video/mp4" />
+            </video>
+          </div>
+        ) : (
+          <div className="md:w-[1180px]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full top-0 left-0"
+            >
+              <source src="video_1.mp4" type="video/mp4" />
+            </video>
+          </div>
+        )}
+
+        {/** content */}
+        <div
+          className="absolute top-0 w-full z-10 flex justify-between mb-[277px] pt-[40px] pl-[50px] pr-[46px]
+        md:block md:pt-[21px] md:pl-[19.64px] md:pr-[30px]
+        "
+        >
+          <div className="flex md:justify-between md:mb-[177px]">
+            <Link href="/">
+              <Image
+                src={logo_mobileto}
+                alt="logo_mobileto"
+                className="mr-[43.14px] w-[320.729px] h-[36px]
+              md:w-[124.728px] md:h-[14px]
+              "
+              />
+            </Link>
+            <div
+              className="pt-[2px] text-[18px] leading-[19.8px] tracking-[0.36px]
+            md:pt-0 md:text-[12px] md:leading-[13.2px] md:tracking-normal
+            "
+            >
+              <span className="block mb-[4px]">APP WEB SERVER</span>
+              <span>DEVELOPEMENT & UI/UX</span>
+            </div>
+          </div>
+          <div className="mr-[6px] md:pr-[6.62px] md:mr-0 md:flex md:justify-end">
+            <div>
+              <span
+                className="block mb-[4px] text-[18px] leaading-[19.8px] tracking-[0.36px]
+              md:text-[12px] md:leading-[13.2px] md:tracking-[0.24px]
+              "
+              >
+                <Link href="/page1"> SEOUL</Link>,{" "}
+                <Link href="/page2">KOREA</Link>
+              </span>
+              <span
+                className="block mb-[4px] text-[18px] leaading-[19.8px] tracking-[0.36px]
+              md:mb-[10.47px] md:text-[12px] md:leading-[13.2px] md:tracking-[0.24px]
+              "
+              >
+                <Link href="/page3">HOCHIMINH</Link>,{" "}
+                <Link href="/page4">VIETNAM</Link>
+              </span>
+              <span
+                className="block mb-[33px] text-[12px] leading-[13.2px] tracking-[0.24px]
+              md:mb-[23px] md:text-[9px] md:leading-[9.9px] md:tracking-[0.18px]
+              "
+              >
+                Powered by TEAM BRO.
+              </span>
+              <div className="flex gap-[10px]">
+                <a href="https://www.instagram.com/mobileto.io" target="_blank">
+                  <Image src={btn_instagram} alt="btn_instagram" />
+                </a>
+
+                <Image src={btn_mail} alt="btn_mail" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/** content 중단부분 */}
+
+        <span
+          className="absolute top-[441px] text-white font-Inter text-[220px] leading-[286px] uppercase text-nowrap animate-normal
+          md:top-[342px] md:text-[100px] md:leading-[130px] md:animate-md_normal
+        "
+        >
+          ©MOBILETO. Specializes in creating global digital experience services.
+          We offer proposals tailored to our clients&apos; needs and goals,
+          ensuring that the solutions we build and deliver operate at the
+          highest quality.
+        </span>
+        <span
+          className="absolute top-[650.5px] text-white font-Inter text-[220px] leading-[286px] uppercase text-nowrap animate-fast
+          md:top-[442px] md:text-[100px] md:leading-[130px] md:animate-md_fast
+        "
+        >
+          TEAM BRO. Specializes in creating global digital experience services.
+          We offer proposals tailored to our clients&apos; needs and goals,
+          ensuring that the solutions we build and deliver operate at the
+          highest quality.
+        </span>
+        <span
+          className="absolute top-[859px] text-white font-Inter text-[220px] leading-[286px] uppercase text-nowrap animate-slow
+          md:top-[542px] md:text-[100px] md:leading-[130px] md:animate-md_slow
+        "
+        >
+          TEAM BRO. Specializes in creating global digital experience services.
+          We offer proposals tailored to our clients&apos; needs and goals,
+          ensuring that the solutions we build and deliver operate at the
+          highest quality.
+        </span>
+
+        {/** content 하단부분 */}
+        <div
+          className="absolute bottom-[50px] right-[46px] text-[#FFFDFD] font-Inter
+          md:bottom-[40px] md:right-[31px]
+        "
+        >
+          <span
+            className="block mb-[15px] text-[18px] leading-[19.8px] tracking-[0.36px]
+          md:mb-[8px] md:text-[12px] md:leading-[13.2px] md:tracking-normal
+          "
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            ©MOBILETO
+            <br />
+            ALL RIGHTS RESERVED.
+          </span>
+
+          <span
+            className="block mb-[76.97px] text-[12px] leading-[15.6px]
+          md:mb-[63.972px] md:text-[8px] md:leading-[10.4px] md:tracking-normal
+          "
+          >
+            Comprised of four units, it embodies
+            <br /> structure, modularity, simplicity
+            <br /> leading to synergy, growth, flexibility,
+            <br /> and effective execution.
+          </span>
+
+          <Image
+            src={logo_teambro}
+            alt="logo_teambro"
+            className="absolute bottom-0 left-0 md:w-[37.718px] md:h-[36.972px]"
+          />
+          <strong
+            className="absolute block left-[51px] bottom-[18.97px] font-Montserrat text-[18px] font-bold leading-[23.4px]
+          md:left-[47.29px] md:bottom-[23.97px] md:text-[12px] md:leading-[15.6px]
+          "
+          >
+            TEAM BRO.
+          </strong>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
