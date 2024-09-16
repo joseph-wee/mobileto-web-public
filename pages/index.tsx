@@ -1,11 +1,25 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
+import {
+  useEffect,
+  useState,
+} from 'react';
 
-import { btn_instagram, btn_mail, logo_mobileto, logo_teambro } from "@/assets";
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import {
+  btn_instagram,
+  btn_mail,
+  logo_mobileto,
+  logo_teambro,
+} from '@/assets';
 
 export default function Home() {
-  const random = Math.floor(Math.random() * 2);
+  const [random, setRandom] = useState(-1);
+
+  useEffect(() => {
+    Math.floor(Math.random() * 2) ? setRandom(1) : setRandom(0);
+  }, []);
 
   return (
     <>
@@ -69,7 +83,7 @@ export default function Home() {
 "
       >
         {/** bg video */}
-        {random ? (
+        {random === 1 && (
           <div className="relative left-1/2 -translate-x-1/2 md1600 max_aspect1600">
             <video
               autoPlay
@@ -81,7 +95,8 @@ export default function Home() {
               <source src="video_0.mp4" type="video/mp4" />
             </video>
           </div>
-        ) : (
+        )}
+        {random === 0 && (
           <div
             className="relative left-1/2 -translate-x-1/2
             max_aspect16_9_1
