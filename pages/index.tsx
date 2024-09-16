@@ -1,18 +1,10 @@
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from "react";
 
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 
-import {
-  btn_instagram,
-  btn_mail,
-  logo_mobileto,
-  logo_teambro,
-} from '@/assets';
+import { btn_instagram, btn_mail, logo_mobileto, logo_teambro } from "@/assets";
 
 export default function Home() {
   const [random, setRandom] = useState(-1);
@@ -29,7 +21,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:image"
-          content="https://sayyo-file-dev.s3.ap-southeast-1.amazonaws.com/testImage.png"
+          content="https://mobileto-files.s3.amazonaws.com/mobileto_og_1.png"
         />
         {/* <meta
           property="og:image"
@@ -38,7 +30,7 @@ export default function Home() {
         <meta property="og:title" content="Mobileto" />
 
         {/* //카카오톡에 링크를 전송하면 보이는 내용을 text로 설정 */}
-        <meta property="og:description" content="og text" />
+        <meta property="og:description" content="Way to mibile" />
         <link rel="icon" href="/favicon.ico" />
 
         {/** 1. 즐겨찾기 아이콘?  2.아이패드 아이콘?*/}
@@ -146,20 +138,18 @@ export default function Home() {
           <div className="mr-[6px] md:pr-[6.62px] md:mr-0 md:flex md:justify-end">
             <div>
               <span
-                className="block mb-[4px] text-[18px] leaading-[19.8px] tracking-[0.36px]
+                className="block mb-[4px] text-[18px] leading-[19.8px] tracking-[0.36px]
               md:text-[12px] md:leading-[13.2px] md:tracking-[0.24px]
               "
               >
-                <Link href="/page1"> SEOUL</Link>,{" "}
-                <Link href="/page2">KOREA</Link>
+                SEOUL, KOREA
               </span>
               <span
-                className="block mb-[4px] text-[18px] leaading-[19.8px] tracking-[0.36px]
+                className="block mb-[10px] text-[18px] leading-[19.8px] tracking-[0.36px]
               md:mb-[10.47px] md:text-[12px] md:leading-[13.2px] md:tracking-[0.24px]
               "
               >
-                <Link href="/page3">HOCHIMINH</Link>,{" "}
-                <Link href="/page4">VIETNAM</Link>
+                HOCHIMINH, VIETNAM
               </span>
               <span
                 className="block mb-[33px] text-[12px] leading-[13.2px] tracking-[0.24px]
@@ -172,8 +162,9 @@ export default function Home() {
                 <a href="https://www.instagram.com/mobileto.io" target="_blank">
                   <Image src={btn_instagram} alt="btn_instagram" />
                 </a>
-
-                <Image src={btn_mail} alt="btn_mail" />
+                <a href="mailto:contact@mobileto.io">
+                  <Image src={btn_mail} alt="btn_mail" />
+                </a>
               </div>
             </div>
           </div>
