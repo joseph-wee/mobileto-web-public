@@ -30,7 +30,7 @@ export default function Home() {
         <meta property="og:title" content="Mobileto" />
 
         {/* //카카오톡에 링크를 전송하면 보이는 내용을 text로 설정 */}
-        <meta property="og:description" content="Way to mibile" />
+        <meta property="og:description" content="Way to mobile" />
         <link rel="icon" href="/favicon.ico" />
 
         {/** 1. 즐겨찾기 아이콘?  2.아이패드 아이콘?*/}
