@@ -5,6 +5,8 @@ import Link from "next/link";
 import { btn_instagram, btn_mail, logo_mobileto, logo_teambro } from "@/assets";
 
 export default function Home() {
+  const random = Math.floor(Math.random() * 2);
+
   return (
     <>
       <Head>
@@ -58,10 +60,17 @@ export default function Home() {
         {/* <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ae4dvc" /> */}
       </Head>
-      <div className="relative text-[#FFFDFD] font-Inter overflow-x-hidden">
+      <div
+        className="relative  text-[#FFFDFD] font-Inter overflow-hidden 
+        vhvh
+        custom_responsive1
+        md720:min-h-[892px]
+        md720:h-[100vh]
+"
+      >
         {/** bg video */}
-        {Math.floor(Math.random() * 2) ? (
-          <div className="md:w-[1180px]">
+        {random ? (
+          <div className="relative left-1/2 -translate-x-1/2 md1600 max_aspect1600">
             <video
               autoPlay
               muted
@@ -73,7 +82,15 @@ export default function Home() {
             </video>
           </div>
         ) : (
-          <div className="md:w-[1180px]">
+          <div
+            className="relative left-1/2 -translate-x-1/2
+            max_aspect16_9_1
+            max_aspect16_9_2
+            max_aspect16_9_3
+            max_aspect16_9_4
+            max_aspect16_9_5
+            "
+          >
             <video
               autoPlay
               muted
@@ -98,7 +115,7 @@ export default function Home() {
                 src={logo_mobileto}
                 alt="logo_mobileto"
                 className="mr-[43.14px] w-[320.729px] h-[36px]
-              md:w-[124.728px] md:h-[14px]
+              md:w-[124.728px] md:h-[14px] 
               "
               />
             </Link>

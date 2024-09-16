@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -23,13 +23,14 @@ const config: Config = {
     },
     screens: {
       md: { max: "1179px" },
-      md1600: { max: "1159px" },
+      md1600: { max: "1599px" },
       md720: { max: "720px" },
       md760: { max: "760px" },
       md970: { max: "970px" },
       md1080: { max: "1080px" },
       md1180: { max: "1180px" },
       md1450: { max: "1450px" },
+      md1550: { max: "1550px" },
       md1920_720: { max: "1920px", min: "721px" },
       md1920_760: { max: "1920px", min: "761px" },
       md1920_970: { max: "1920px", min: "971px" },
@@ -39,6 +40,7 @@ const config: Config = {
       md1920: { max: "1919px", min: "721px" },
       tall: { raw: "(max-height: 1151px)" },
       md805: { max: "805px" },
+      mh: { raw: "(max-height: 1984px)" },
     },
     backgroundImage: {
       "img-back-middle": "url('/assets/img_back_middle.png')",
