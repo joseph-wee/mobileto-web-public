@@ -14,13 +14,13 @@ on:
         description: "What profile"
         required: true
         default: "deploy-dev"
-        
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.x']
+        node-version: ["20.x"]
 
     steps:
       - name: Checkout source code.
@@ -30,13 +30,13 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          
+          cache: "npm"
+
       - name: Install dependencies
         run: yarn install
 
       - name: Run build
-        run: yarn build       
+        run: yarn build
 
       - name: Current timestamp
         id: timestamp
@@ -44,17 +44,17 @@ jobs:
 
       - name: remove node_modules
         run: rm -rf node_modules
-        
+
       - name: Generate deployment package # (1)
         run: zip ./deploy.zip -r * .[^.]*
-          
+
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: mobileto-web
-          environment_name: Mobileto-web-env
-          version_label: '${{ steps.timestamp.outputs.date }}'
+          environment_name: Mobileto-web-env-1
+          version_label: "${{ steps.timestamp.outputs.date }}"
           region: us-east-1
           deployment_package: deploy.zip
