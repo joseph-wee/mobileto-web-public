@@ -1,12 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import {
-  btn_instagram_color,
-  logo_mobileto_black,
-} from '../assets';
+import { btn_instagram_color, logo_mobileto_black } from "../assets";
 
 const Footer = () => {
   return (
@@ -21,7 +18,7 @@ const Footer = () => {
       md720:mb-[6px]"
       >
         <Link
-          href="/sayyo/privacy_policy"
+          href="/sayyo/pp"
           className="text-sayyo_subtext font-Roboto text-[16px] leading-[20.8px]
           md1920_1450:text-[0.833vw] md1920:leading-[1.083vw]
           md1450:text-[12px]
@@ -31,7 +28,7 @@ const Footer = () => {
         </Link>
         <div className="w-[1px] h-[13px] bg-[rgba(0,0,0,0.1)]" />
         <Link
-          href="/sayyo/terms_of_conditions"
+          href="/sayyo/toc"
           className="text-sayyo_subtext font-Roboto text-[16px] leading-[20.8px]
           md1920_1450:text-[0.833vw] md1920:leading-[1.083vw]
           md1450:text-[12px]
@@ -59,7 +56,7 @@ const Footer = () => {
         </button>
       </div>
       <Link
-        href="/sayyo/account_withdraw_guide"
+        href="/sayyo/del_guide"
         className="block mb-[9px] text-sayyo_subtext text-center font-Roboto text-[16px] leading-[20.8px] 
       md1920_1450:text-[0.833vw] md1920_1450:leading-[1.083vw]
       md1450:text-[12px]
@@ -98,7 +95,7 @@ const FooterEn = () => {
       md720:mb-[6px]"
       >
         <Link
-          href="/sayyo/en/privacy_policy"
+          href="/sayyo/en/pp"
           className="text-sayyo_subtext font-Roboto text-[16px] leading-[20.8px]
           md1920_1450:text-[0.833vw] md1920:leading-[1.083vw]
           md1450:text-[12px]
@@ -108,7 +105,7 @@ const FooterEn = () => {
         </Link>
         <div className="w-[1px] h-[13px] bg-[rgba(0,0,0,0.1)]" />
         <Link
-          href="/sayyo/en/terms_of_conditions"
+          href="/sayyo/en/toc"
           className="text-sayyo_subtext font-Roboto text-[16px] leading-[20.8px]
           md1920_1450:text-[0.833vw] md1920:leading-[1.083vw]
           md1450:text-[12px]
@@ -138,7 +135,7 @@ const FooterEn = () => {
         </button>
       </div>
       <Link
-        href="/sayyo/en/account_withdraw_guide"
+        href="/sayyo/en/del_guide"
         className="block mb-[9px] text-sayyo_subtext text-center font-Roboto text-[16px] leading-[20.8px] 
       md1920_1450:text-[0.833vw] md1920_1450:leading-[1.083vw]
       md1450:text-[12px]

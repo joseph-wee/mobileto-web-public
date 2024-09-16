@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Footer, Header } from "../../../components";
+import { Footer, Header } from "../../components";
 
-const terms_of_conditions = () => {
+const toc = () => {
   return (
     <div className="relative pb-[264px] md720:pb-[173px] tall:pb-0">
-      <Header.GreenEn />
+      <Header.Green />
 
       {/** content */}
       <div className="mx-auto pl-[18px] pr-[18px] pt-[113px] pb-[40px] max-w-[1030px] box-content">
@@ -111,10 +111,9 @@ const terms_of_conditions = () => {
           </a>
         </p>
       </div>
-
-      <Footer.En />
+      <Footer />
     </div>
   );
 };
 
-export default terms_of_conditions;
+export default toc;

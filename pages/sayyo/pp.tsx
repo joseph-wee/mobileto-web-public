@@ -2,7 +2,7 @@ import React from "react";
 
 import { Footer, Header } from "../../components";
 
-const privacy_policy = () => {
+const pp = () => {
   return (
     <div className="relative pb-[264px] md720:pb-[173px] tall:pb-0">
       <Header.Green />
@@ -145,4 +145,4 @@ const privacy_policy = () => {
   );
 };
 
-export default privacy_policy;
+export default pp;

@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import {
-  Footer,
-  Header,
-} from '../../components';
+import { Footer, Header } from "../../components";
 
-const account_withdraw_guide = () => {
+const del_guide = () => {
   return (
     <div className="relative pb-[264px] md720:pb-[173px] tall:pb-0">
       <Header.Green />
@@ -104,4 +101,4 @@ const account_withdraw_guide = () => {
   );
 };
 
-export default account_withdraw_guide;
+export default del_guide;
