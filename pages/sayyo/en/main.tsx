@@ -66,7 +66,7 @@ export default function Home() {
             <Image
               src={img_qr_and}
               alt="icon_qr_code"
-              className="mr-[59.9px] md1920:mr-[3.119vw] md1920:w-[3.645vw] md720:mr-[13.98px] md720:w-[24.36px] md720:h-[24.36px]"
+              className="mr-[59.9px] w-[69.1px] h-[69.1px] md1920:mr-[3.119vw] md1920:w-[3.645vw] md1920:h-[3.645vw] md720:mr-[13.98px] md720:w-[24.36px] md720:h-[24.36px]"
             />
             <div className="w-[1px] h-[94px] border-l-[1px] border-l-sayyo_bg_more mr-[73.5px] md1920:mr-[3.828vw] md1920:h-[4.895vw] md720:mr-[20.37px] md720:h-[26px]" />
             <Image
@@ -82,7 +82,7 @@ export default function Home() {
             <Image
               src={img_qr_ios}
               alt="icon_qr_code"
-              className="md1920:w-[3.645vw] md720:w-[25.06px] md720:h-[25.05px]"
+              className="w-[69.1px] h-[69.1px] md1920:w-[3.645vw] md1920:h-[3.645vw] md720:w-[25.06px] md720:h-[25.05px]"
             />
           </div>
           {/** man, woman */}
