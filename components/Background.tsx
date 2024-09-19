@@ -8,11 +8,7 @@ const Background = () => {
   return (
     <div className="w-full absolute top-0">
       <div className="h-[765px] bg-sayyo_primary overflow-hidden md1920:h-[39.843vw] md720:h-[240px]">
-        <Image
-          src={img_back}
-          alt="img_back"
-          className="m-auto my-0 w-[1920px] md1920:w-auto md720:w-full"
-        />
+        <Image src={img_back} alt="img_back" className="m-auto my-0 w-full" />
       </div>
 
       <div className="h-[478px] bg-sayyo_bg md1920:h-[24.895vw] md720:h-[132px]" />
@@ -27,9 +23,7 @@ const Background = () => {
         </div>
       </div>
       <div className="h-[618px] bg-sayyo_primary overflow-hidden md1920:h-[32.187vw] md720:h-[170px]">
-        <div className="m-auto my-0 w-[1920px] md1920:w-full md720:w-full">
-          <Image src={img_back2} alt="img_back" />
-        </div>
+        <Image src={img_back2} alt="img_back" className="m-auto my-0 w-full" />
       </div>
       <div className="h-[318px] bg-sayyo_wht md1920:h-[16.562vw] md720:h-[105px]" />
     </div>
