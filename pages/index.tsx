@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import { btn_instagram, btn_mail, logo_mobileto, logo_teambro } from "@/assets";
+import { btn_instagram, btn_mail, logo_mobileto } from "@/assets";
 
 export default function Home() {
   const [random, setRandom] = useState(-1);
@@ -116,7 +116,7 @@ export default function Home() {
         md:block md:pt-[21px] md:pl-[19.64px] md:pr-[30px]
         "
         >
-          <div className="flex md:justify-between md:mb-[177px]">
+          <div className="flex md:justify-between md:mb-[207px]">
             <Link href="/">
               <Image
                 src={logo_mobileto}
@@ -145,19 +145,13 @@ export default function Home() {
                 SEOUL, KOREA
               </span>
               <span
-                className="block mb-[10px] text-[18px] leading-[19.8px] tracking-[0.36px]
-              md:mb-[10.47px] md:text-[12px] md:leading-[13.2px] md:tracking-[0.24px]
+                className="block mb-[16px] text-[18px] leading-[19.8px] tracking-[0.36px]
+              md:mb-[13.47px] md:text-[12px] md:leading-[13.2px] md:tracking-[0.24px]
               "
               >
                 HOCHIMINH, VIETNAM
               </span>
-              <span
-                className="block mb-[33px] text-[12px] leading-[13.2px] tracking-[0.24px]
-              md:mb-[23px] md:text-[9px] md:leading-[9.9px] md:tracking-[0.18px]
-              "
-              >
-                Powered by TEAM BRO.
-              </span>
+
               <div className="flex gap-[10px]">
                 <a href="https://www.instagram.com/mobileto.io" target="_blank">
                   <Image src={btn_instagram} alt="btn_instagram" />
@@ -205,43 +199,19 @@ export default function Home() {
 
         {/** content 하단부분 */}
         <div
-          className="absolute bottom-[50px] right-[46px] text-[#FFFDFD] font-Inter
-          md:bottom-[40px] md:right-[31px]
+          className="absolute bottom-[40px] right-[46px] text-[#FFFDFD] font-Inter
+          md:bottom-[20px] md:right-[37px] md720:right-[27px]
         "
         >
           <span
-            className="block mb-[15px] text-[18px] leading-[19.8px] tracking-[0.36px]
-          md:mb-[8px] md:text-[12px] md:leading-[13.2px] md:tracking-normal
+            className="block text-[18px] leading-[19.8px] tracking-[0.36px]
+           md:text-[12px] md:leading-[13.2px] md:tracking-normal
           "
           >
             ©MOBILETO
             <br />
             ALL RIGHTS RESERVED.
           </span>
-
-          <span
-            className="block mb-[76.97px] text-[12px] leading-[15.6px]
-          md:mb-[63.972px] md:text-[8px] md:leading-[10.4px] md:tracking-normal
-          "
-          >
-            Comprised of four units, it embodies
-            <br /> structure, modularity, simplicity
-            <br /> leading to synergy, growth, flexibility,
-            <br /> and effective execution.
-          </span>
-
-          <Image
-            src={logo_teambro}
-            alt="logo_teambro"
-            className="absolute bottom-0 left-0 md:w-[37.718px] md:h-[36.972px]"
-          />
-          <strong
-            className="absolute block left-[51px] bottom-[18.97px] font-Montserrat text-[18px] font-bold leading-[23.4px]
-          md:left-[47.29px] md:bottom-[23.97px] md:text-[12px] md:leading-[15.6px]
-          "
-          >
-            TEAM BRO.
-          </strong>
         </div>
       </div>
     </>
