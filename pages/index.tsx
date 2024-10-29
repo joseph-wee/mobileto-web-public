@@ -205,11 +205,17 @@ export default function Home() {
         >
           <span
             className="block text-[18px] leading-[19.8px] tracking-[0.36px]
-           md:text-[12px] md:leading-[13.2px] md:tracking-normal
+           md:mb-[4px] md:text-[12px] md:leading-[13.2px] md:tracking-normal
           "
           >
             ©MOBILETO
-            <br />
+          </span>
+
+          <span
+            className="block text-[18px] leading-[19.8px] tracking-[0.36px]
+           md:text-[12px] md:leading-[13.2px] md:tracking-normal
+          "
+          >
             ALL RIGHTS RESERVED.
           </span>
         </div>
