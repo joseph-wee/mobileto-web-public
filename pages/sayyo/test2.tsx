@@ -48,7 +48,7 @@ const useTest2 = () => {
   }, []);
 
   return (
-    <div className=" bg-[#F2F6F8]">
+    <div className=" bg-[#F2F6F8] font-Roboto">
       <div
         className="flex flex-col min-h-[100vh] max-w-[768px] mx-auto border-x-[1px] border-x-[#DEE6EC] box-content
       md768:border-none
