@@ -26,6 +26,16 @@ const config: Config = {
       md1600: { max: "1599px" },
       md720: { max: "720px" },
       md760: { max: "760px" },
+      md768: { max: "768px" },
+
+      // grid 10, 9, 8 ... 5
+      md767: { max: "767px" },
+      md699: { max: "699px" },
+      md631: { max: "631px" },
+      md563: { max: "563px" },
+      md495: { max: "495px" },
+      md427: { max: "427px" },
+
       md970: { max: "970px" },
       md1080: { max: "1080px" },
       md1180: { max: "1180px" },
