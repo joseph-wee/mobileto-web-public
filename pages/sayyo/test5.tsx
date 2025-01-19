@@ -61,7 +61,7 @@ const useTest5 = () => {
               ? `opacity-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-[8px] bg-[#000000]/70
         h-[59px] w-[239px]
         text-[16px] leading-[20.8px] text-sayyo_wht
-        transition-all
+        transition-all z-10
           `
               : `opacity-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-[8px] bg-[#000000]/70
         h-[59px] w-[239px]
