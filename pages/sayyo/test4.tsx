@@ -8,6 +8,8 @@ import {
   ic_pin,
   ic_share_dark,
   img_sample1,
+  img_sample2,
+  img_sample3,
   logo_sayyo_white,
   sample_applicant1,
   sample_applicant2,
@@ -15,7 +17,7 @@ import {
   sample_applicant4,
 } from "@/assets";
 
-const useTest1 = () => {
+const useTest4 = () => {
   const [share, setShare] = useState(false); // 공유하기 ticker 값
 
   // TODO: 나중에 앱링크, 유니버셜링크 받아서 브라우저별 세팅 해야 함.
@@ -50,6 +52,9 @@ const useTest1 = () => {
   if (typeof window !== "undefined") {
     window.onresize = () => console.log("test");
   }
+
+  /** images */
+  const images = [];
 
   /** applicants list */
   const applicants = [
@@ -145,19 +150,40 @@ const useTest1 = () => {
                 </div>
               </div>
             </div>
-
             <div
               className="flex gap-[1px] max-h-[217px] min-h-[96px] aspect-[736/217] rounded-[9px] cursor-pointer overflow-hidden"
               onClick={() => window.open(path)}
             >
               <div className="flex-1 relative ">
                 <Image
-                  src={img_sample1}
+                  src={img_sample3}
                   alt="sample1"
                   layout="fill"
                   objectFit="cover"
                   objectPosition="center"
                 />
+              </div>
+              <div className="flex-1 relative ">
+                <Image
+                  src={img_sample1}
+                  alt="sample2"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </div>
+              <div className="flex-1 relative ">
+                <Image
+                  src={img_sample2}
+                  alt="sample2"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+                <div className="absolute w-full h-full bg-opacity-40 bg-[#000000]"></div>
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18px] text-sayyo_wht leading-[22.5px]">
+                  +2
+                </span>
               </div>
             </div>
           </div>
@@ -489,4 +515,4 @@ const useTest1 = () => {
   );
 };
 
-export default useTest1;
+export default useTest4;

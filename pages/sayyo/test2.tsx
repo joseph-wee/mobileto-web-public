@@ -7,8 +7,13 @@ import {
   ic_pay,
   ic_pin,
   ic_share_dark,
-  img_sample,
+  img_sample1,
+  img_sample3,
   logo_sayyo_white,
+  sample_applicant1,
+  sample_applicant2,
+  sample_applicant3,
+  sample_applicant4,
 } from "@/assets";
 
 const useTest2 = () => {
@@ -43,6 +48,30 @@ const useTest2 = () => {
     }
   };
 
+  if (typeof window !== "undefined") {
+    window.onresize = () => console.log("test");
+  }
+
+  /** images */
+  const images = [];
+
+  /** applicants list */
+  const applicants = [
+    { image: sample_applicant1, name: "Fruity", loc: "Quan1" },
+    { image: sample_applicant2, name: "Grace", loc: "Quan1" },
+    { image: sample_applicant3, name: "works", loc: "Quan5" },
+    { image: sample_applicant4, name: "LOKAA", loc: "The duc" },
+    { image: sample_applicant1, name: "Fruity", loc: "Quan1" },
+    { image: sample_applicant2, name: "Grace", loc: "Quan1" },
+    { image: sample_applicant3, name: "works", loc: "Quan5" },
+    { image: sample_applicant4, name: "LOKAA", loc: "The duc" },
+    { image: sample_applicant1, name: "Fruity", loc: "Quan1" },
+    { image: sample_applicant2, name: "Grace", loc: "Quan1" },
+    { image: sample_applicant3, name: "works", loc: "Quan5" },
+    { image: sample_applicant4, name: "LOKAA", loc: "The duc" },
+  ];
+
+  /** 렌더링시 실행 */
   useEffect(() => {
     iosSetter();
   }, []);
@@ -91,8 +120,8 @@ const useTest2 = () => {
               vietnamese language teacher need
             </h1>
             <p className="mb-[12px] text-sayyo_l2 leading-[18.2px]">
-              vietnamese language teacher needvietnamese language teacher
-              needvietnamese language teacher needvietnamese language teacher
+              vietnamese language teacher need vietnamese language teacher
+              needvietnamese language teacher need vietnamese language teacher
               need
             </p>
             <div className="mb-[12px] border-t-[1px] border-sayyo_bg_more border-dashed" />
@@ -120,21 +149,337 @@ const useTest2 = () => {
                 </div>
               </div>
             </div>
-
-            <Image
-              src={img_sample}
-              alt="sample"
-              className="max-h-[217px] rounded-[9px] cursor-pointer"
+            <div
+              className="flex gap-[1px] max-h-[217px] min-h-[96px] aspect-[736/217] rounded-[9px] cursor-pointer overflow-hidden"
               onClick={() => window.open(path)}
-            />
+            >
+              <div className="flex-1 relative ">
+                <Image
+                  src={img_sample3}
+                  alt="sample1"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </div>
+              <div className="flex-1 relative ">
+                <Image
+                  src={img_sample1}
+                  alt="sample2"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </div>
+            </div>
           </div>
           {/** applicnats */}
           <div
-            className="mb-[20px] h-[142px] flex items-center justify-center bg-sayyo_wht cursor-pointer"
+            className="mb-[20px] pt-[9.5px] h-[167px] box-border bg-sayyo_wht cursor-pointer"
             onClick={() => window.open(path)}
           >
-            <div className="text-sayyo_subtext text-[16px] leading-[20.8px]">
-              No applicants yet
+            <div className="flex justify-between items-center mb-[19px]">
+              <div className="flex pl-[20px] text-[16px] font-bold leading-[20.8px]">
+                Aplicants&nbsp;<span className="font-normal">9</span>
+              </div>
+              <div className="pr-[21px] text-sayyo_subtext text-[12px] leading-[15.6px]">
+                {" "}
+                More
+              </div>
+            </div>
+            {/** overflow hidden */}
+            <div
+              className="grid gap-[12px] justify-between px-[16px] h-[95.42px] overflow-hidden
+            grid-cols-11
+            md767:grid-cols-10
+            md699:grid-cols-9
+            md631:grid-cols-8
+            md563:grid-cols-7
+            md495:grid-cols-6
+            md427:grid-cols-5
+            "
+            >
+              {/** 전체 너비 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 11 && j > 9) && (
+                    <div key={`${j}546`} className="md767:hidden">
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 11 && (
+                <div className="md767:hidden">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 10}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
+              {/** 767 이하 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 10 && j > 8) && (
+                    <div
+                      key={`${j}546`}
+                      className="hidden md767:block md699:hidden"
+                    >
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 10 && (
+                <div className="hidden md767:block md699:hidden">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 9}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
+              {/** 699 이하 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 9 && j > 7) && (
+                    <div
+                      key={`${j}546`}
+                      className="hidden md699:block md631:hidden"
+                    >
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 9 && (
+                <div className="hidden md699:block md631:hidden">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 8}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
+              {/** 631 이하 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 8 && j > 6) && (
+                    <div
+                      key={`${j}546`}
+                      className="hidden md631:block md563:hidden"
+                    >
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 8 && (
+                <div className="hidden md631:block md563:hidden">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 7}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
+              {/** 563 이하 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 7 && j > 5) && (
+                    <div
+                      key={`${j}546`}
+                      className="hidden md563:block md495:hidden"
+                    >
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 7 && (
+                <div className="hidden md563:block md495:hidden">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 6}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
+              {/** 495 이하 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 6 && j > 4) && (
+                    <div
+                      key={`${j}546`}
+                      className="hidden md495:block md427:hidden"
+                    >
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 6 && (
+                <div className="hidden md495:block md427:hidden">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 5}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
+              {/** 427 이하 */}
+              {applicants.map((i, j) => {
+                return (
+                  !(applicants.length > 5 && j > 3) && (
+                    <div key={`${j}546`} className="hidden md427:block">
+                      <div>
+                        <Image
+                          src={i.image}
+                          alt="sample"
+                          className="rounded-full mb-[8.42px] w-[56px] h-[56px]
+                        
+                        "
+                        />
+                        <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                          {`${i.name}`}
+                        </div>
+                        <div className="flex items-center justify-center text-sayyo_subtext text-[12px] leading-[15.6px]">
+                          {`${i.loc}`}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
+              {applicants.length > 5 && (
+                <div className="hidden md427:block">
+                  <div
+                    className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
+         
+                      `}
+                  >
+                    +{applicants.length - 4}
+                  </div>
+                  <div className="flex items-center justify-center text-sayyo_l2 text-[12px] leading-[15.6px]">
+                    More
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           {/** 하단 버튼 */}
