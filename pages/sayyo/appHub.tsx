@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   icon_appStore,
@@ -14,16 +15,23 @@ const apphub = () => {
   return (
     <div className="pt-[61px] pb-[40px] flex flex-col justify-between items-center bg-sayyo_primary h-[100vh]">
       <div>
-        <div className="mx-auto justify-center mb-[14.5px] w-[135px] h-[64px]">
-          <Image src={logo_sayyo} alt="logo" />
-        </div>
+        <Link href="/sayyo">
+          <div className="mx-auto justify-center mb-[14.5px] w-[135px] h-[64px]">
+            <Image src={logo_sayyo} alt="logo" />
+          </div>
+        </Link>
         <p className="mx-auto mb-[76px] w-[188px] text-center text-sayyo_wht font-Sriracha text-[13px] leading-[15.6px] tracking-[-0.26px]">
           Hãy kết nối với những người giải quyết vấn đề tại địa phương!
         </p>
         {/** button google play */}
-        <div
+        <button
           className="relative mb-[10px] pl-[29px] items-center flex w-[211px] h-[78px] rounded-[8px] bg-sayyo_wht
       shadow-[0px_4.972px_24.861px_0px_rgba(0,0,0,0.25)]"
+          onClick={() =>
+            window.open(
+              "https://play.google.com/store/apps/details?id=com.teambro.sayyo"
+            )
+          }
         >
           <Image
             src={icon_googlePlay}
@@ -41,12 +49,15 @@ const apphub = () => {
           <span className="absolute left-[80px] top-[45px] font-Roboto text-[10.478px] leading-[12.574px] tracking-[-0.21px]">
             Download app
           </span>
-        </div>
+        </button>
 
         {/** button app store */}
-        <div
+        <button
           className="relative pl-[28px] items-center flex w-[211px] h-[78px] rounded-[8px] bg-sayyo_wht
       shadow-[0px_4.972px_24.861px_0px_rgba(0,0,0,0.25)]"
+          onClick={() =>
+            window.open("https://apps.apple.com/app/sayyo/id6504123159")
+          }
         >
           <Image
             src={icon_appStore}
@@ -64,7 +75,7 @@ const apphub = () => {
           <span className="absolute left-[80px] top-[45px] font-Roboto text-[10.478px] leading-[12.574px] tracking-[-0.21px]">
             Download app
           </span>
-        </div>
+        </button>
 
         {/* <Image src={btn_img_googlePlay} alt="btn_googlePlay" width={260} /> */}
 
