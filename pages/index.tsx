@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Head>
         <title>Mobileto</title>
-        <meta name="description" content="repunch web" />
+        <meta name="description" content="mobileto web" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:image"
