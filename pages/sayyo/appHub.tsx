@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,9 +11,85 @@ import {
   text_googlePlay_samll,
 } from "@/assets";
 
-const apphub = () => {
+const useAppHub = () => {
+  const ref = useRef<any>();
+  const timerRef = useRef<any>(null);
+
+  // TODO: 나중에 앱링크, 유니버셜링크 받아서 브라우저별 세팅 해야 함
+
+  // TODO: 주소 예외처리 해놓기
+  // 앱스토어, 애플 스토어 스킴으로 할지 아직 미정
+  /** android link */
+  const androidLink = () => {
+    window.location.href = `sayyo://post/detail?id=${window.location.search.slice(
+      1
+    )}`;
+
+    timerRef.current = setTimeout(() => {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.teambro.sayyo";
+    }, 2000);
+  };
+
+  /** ios link */
+  const iosLink = () => {
+    window.location.href = `sayyo://post/detail?id=${window.location.search.slice(
+      1
+    )}`;
+
+    // timerRef.current = setTimeout(() => {
+    //   window.location.href = "itms-apps://itunes.apple.com/app/6504123159";
+    // }, 2000);
+    timerRef.current = setTimeout(() => {
+      window.location.href = "https://apps.apple.com/app/sayyo/id6504123159";
+    }, 2000);
+  };
+
+  /** link Handler */
+  const linkHandelr = () => {
+    window.focus();
+    let os = "android";
+    const osInfo = navigator.userAgent;
+    const iosDevice = ["iPhone", "iPad", "iPod", "Mac"];
+
+    for (const el of iosDevice) {
+      if (osInfo.includes(el)) {
+        os = "ios";
+      }
+    }
+
+    if (os === "android") {
+      androidLink();
+      return;
+    }
+    iosLink();
+  };
+
+  /** 렌더링시 실행 */
+  useEffect(() => {
+    linkHandelr();
+  }, []);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  }, [ref]);
+
+  const clearTimeoutHandler = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
   return (
-    <div className="pt-[61px] pb-[40px] flex flex-col justify-between items-center bg-sayyo_primary h-[100vh]">
+    <div
+      className="pt-[61px] pb-[40px] flex flex-col justify-between items-center bg-sayyo_primary h-[100vh]"
+      tabIndex={0}
+      ref={ref}
+      onBlur={() => clearTimeoutHandler()}
+    >
       <div>
         <Link href="/sayyo">
           <div className="mx-auto justify-center mb-[14.5px] w-[135px] h-[64px]">
@@ -88,4 +164,4 @@ const apphub = () => {
   );
 };
 
-export default apphub;
+export default useAppHub;
