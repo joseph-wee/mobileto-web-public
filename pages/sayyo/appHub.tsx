@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +14,7 @@ import {
 const useAppHub = () => {
   const ref = useRef<any>();
   const timerRef = useRef<any>(null);
+  const [state, setState] = useState(0);
 
   // TODO: 나중에 앱링크, 유니버셜링크 받아서 브라우저별 세팅 해야 함
 
@@ -37,9 +38,6 @@ const useAppHub = () => {
       1
     )}`;
 
-    // timerRef.current = setTimeout(() => {
-    //   window.location.href = "itms-apps://itunes.apple.com/app/6504123159";
-    // }, 2000);
     timerRef.current = setTimeout(() => {
       window.location.href = "https://apps.apple.com/app/sayyo/id6504123159";
     }, 2000);
@@ -47,7 +45,6 @@ const useAppHub = () => {
 
   /** link Handler */
   const linkHandelr = () => {
-    window.focus();
     let os = "android";
     const osInfo = navigator.userAgent;
     const iosDevice = ["iPhone", "iPad", "iPod", "Mac"];
@@ -68,6 +65,11 @@ const useAppHub = () => {
   /** 렌더링시 실행 */
   useEffect(() => {
     linkHandelr();
+
+    window.addEventListener("visibilitychange", clearHandler);
+    return () => {
+      window.removeEventListener("visibilitychange", clearHandler);
+    };
   }, []);
 
   useEffect(() => {
@@ -76,10 +78,12 @@ const useAppHub = () => {
     }
   }, [ref]);
 
-  const clearTimeoutHandler = () => {
+  /** clear timeout */
+  const clearHandler = () => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
+      setState((prev) => prev + 1);
     }
   };
 
@@ -88,7 +92,7 @@ const useAppHub = () => {
       className="pt-[61px] pb-[40px] flex flex-col justify-between items-center bg-sayyo_primary h-[100vh]"
       tabIndex={0}
       ref={ref}
-      onBlur={() => clearTimeoutHandler()}
+      onBlur={() => clearHandler()}
     >
       <div>
         <Link href="/sayyo">
