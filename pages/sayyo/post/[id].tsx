@@ -71,29 +71,30 @@ const usePostPage = () => {
     return <SayyoMeta />;
   }
 
-  // 데이터 받아오면 렌더링
-  if (data)
-    return (
-      <>
-        <SayyoMeta />
+  return (
+    <>
+      <SayyoMeta />
+
+      {/** data 받아오면 렌더링 */}
+      {data && (
         <div className=" bg-[#F2F6F8] font-Roboto">
           <div
             className="flex flex-col min-h-[100vh] max-w-[768px] mx-auto border-x-[1px] border-x-[#DEE6EC] box-content
-      md768:border-none
-      "
+    md768:border-none
+    "
           >
             {/** ticker */}
             <div
               className={
                 share
                   ? `opacity-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-[8px] bg-[#000000]/70
-        h-[59px] w-[239px]
-        text-[16px] leading-[20.8px] text-sayyo_wht
-        transition-all z-10
-          `
+      h-[59px] w-[239px]
+      text-[16px] leading-[20.8px] text-sayyo_wht
+      transition-all z-10
+        `
                   : `opacity-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center rounded-[8px] bg-[#000000]/70
-        h-[59px] w-[239px]
-        text-[16px] leading-[20.8px] text-sayyo_wht transition-all`
+      h-[59px] w-[239px]
+      text-[16px] leading-[20.8px] text-sayyo_wht transition-all`
               }
             >
               Share url copied successfully
@@ -262,14 +263,14 @@ const usePostPage = () => {
                     {/** overflow hidden */}
                     <div
                       className="grid gap-[12px] justify-between px-[16px] pb-[22px]
-            grid-cols-11
-            md767:grid-cols-10
-            md699:grid-cols-9
-            md631:grid-cols-8
-            md563:grid-cols-7
-            md495:grid-cols-6
-            md427:grid-cols-5
-            "
+          grid-cols-11
+          md767:grid-cols-10
+          md699:grid-cols-9
+          md631:grid-cols-8
+          md563:grid-cols-7
+          md495:grid-cols-6
+          md427:grid-cols-5
+          "
                     >
                       {/** 전체 너비 */}
                       {data.userApply.map((i: any, j: number) => {
@@ -286,8 +287,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -304,8 +305,8 @@ const usePostPage = () => {
                         <div className="md767:hidden">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 10}
                           </div>
@@ -332,8 +333,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -350,8 +351,8 @@ const usePostPage = () => {
                         <div className="hidden md767:block md699:hidden">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 9}
                           </div>
@@ -378,8 +379,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -396,8 +397,8 @@ const usePostPage = () => {
                         <div className="hidden md699:block md631:hidden">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 8}
                           </div>
@@ -424,8 +425,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -442,8 +443,8 @@ const usePostPage = () => {
                         <div className="hidden md631:block md563:hidden">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 7}
                           </div>
@@ -470,8 +471,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -488,8 +489,8 @@ const usePostPage = () => {
                         <div className="hidden md563:block md495:hidden">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 6}
                           </div>
@@ -516,8 +517,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -534,8 +535,8 @@ const usePostPage = () => {
                         <div className="hidden md495:block md427:hidden">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 5}
                           </div>
@@ -559,8 +560,8 @@ const usePostPage = () => {
                                   width={56}
                                   height={56}
                                   className="rounded-full mb-[8.42px] w-[56px] h-[56px]
-                        
-                        "
+                      
+                      "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
                                   {`${i.informationModel.name}`}
@@ -577,8 +578,8 @@ const usePostPage = () => {
                         <div className="hidden md427:block">
                           <div
                             className={`flex items-center justify-center rounded-full mb-[8.42px] w-[56px] h-[56px] bg-sayyo_subtext text-sayyo_wht text-[16px] leading-[16px]
-         
-                      `}
+       
+                    `}
                           >
                             +{data.userApply.length - 4}
                           </div>
@@ -595,8 +596,8 @@ const usePostPage = () => {
             </div>
             <div
               className="p-[16px] bottom-0 max-w-[768px] w-full bg-sayyo_wht border-t-[1px] border-t-[#DEE6EC]
-          
-          "
+        
+        "
             >
               <Link href={`/sayyo/appHub?${path.split("/")[3]}`}>
                 <button className="w-full h-[48px] text-sayyo_wht text-[14px] font-bold leading-[18.2px] rounded-[8px] bg-sayyo_primary">
@@ -606,8 +607,9 @@ const usePostPage = () => {
             </div>
           </div>
         </div>
-      </>
-    );
+      )}
+    </>
+  );
 };
 
 export default usePostPage;
