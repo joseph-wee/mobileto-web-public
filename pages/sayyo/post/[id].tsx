@@ -10,7 +10,6 @@ import {
   ic_pay,
   ic_pin,
   ic_share_dark,
-  img_sample2,
   logo_sayyo_white,
 } from "@/assets";
 import SayyoMeta from "@/components/SayyoMeta";
@@ -44,6 +43,17 @@ const usePostPage = () => {
   /** 상세화면 호출 핸들러 */
   const apiHandler = (id: number) => {
     apiGetDetailJob(id).then((res) => {
+      console.log(res.data);
+      console.log(res.data.urlImage);
+      fetch(res.data.data.userApply[0].informationModel.avatar, {
+        method: "HEAD",
+      })
+        .then((response) => {
+          return response.headers.get("Content-type");
+        })
+        .then((contentType) => {
+          console.log(contentType);
+        });
       setData(res.data.data);
       setResCode(res.data.responseCode);
     });
@@ -112,7 +122,7 @@ const usePostPage = () => {
                   {`${data.description}`}
                 </p>
                 <div className="mb-[12px] border-t-[1px] border-sayyo_bg_more border-dashed" />
-                <div className="mb-[12px]">
+                <div className="">
                   <div className="mb-[6px] flex items-center gap-[8px]">
                     <Image src={ic_pay} alt="ic_pay" />
                     <div className="text-sayyo_l2 text-[14px] leading-[16.8px]">
@@ -141,58 +151,62 @@ const usePostPage = () => {
                 </div>
 
                 {/** image */}
-                <Link href={`/sayyo/appHub?${path.split("/")[3]}`}>
-                  <div className="flex gap-[1px] max-h-[217px] min-h-[96px] aspect-[736/217] rounded-[9px] cursor-pointer overflow-hidden">
-                    {data.urlImage <= 3
-                      ? data.urlImage.map((el: any, j: number) => {
-                          return (
-                            <div className="flex-1 relative" key={`abx${j}`}>
-                              <Image
-                                src={el}
-                                alt="sample1"
-                                layout="fill"
-                                objectFit="cover"
-                                objectPosition="center"
-                              />
-                            </div>
-                          );
-                        })
-                      : data.urlImage.map((el: any, j: number) => {
-                          if (j >= 3) {
-                            return;
-                          }
-
-                          if (j === 2) {
+                {data.urlImage && data.urlImage.length !== 0 ? (
+                  <Link href={`/sayyo/appHub?${path.split("/")[3]}`}>
+                    <div className="mt-[12px] flex gap-[1px] max-h-[217px] min-h-[96px] aspect-[736/217] rounded-[9px] cursor-pointer overflow-hidden">
+                      {data.urlImage <= 3
+                        ? data.urlImage.map((el: any, j: number) => {
                             return (
-                              <div className="flex-1 relative" key={`${j}as`}>
+                              <div className="flex-1 relative" key={`abx${j}`}>
                                 <Image
-                                  src={img_sample2}
-                                  alt="sample2"
+                                  src={el}
+                                  alt="sample1"
                                   layout="fill"
                                   objectFit="cover"
                                   objectPosition="center"
                                 />
-                                <div className="absolute w-full h-full bg-opacity-40 bg-[#000000]"></div>
-                                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18px] text-sayyo_wht leading-[22.5px]">
-                                  +2
-                                </span>
                               </div>
                             );
-                          }
-                          return (
-                            <div className="flex-1 relative" key={`abx${j}`}>
-                              <Image
-                                src={el}
-                                alt="sample1"
-                                layout="fill"
-                                objectFit="cover"
-                                objectPosition="center"
-                              />
-                            </div>
-                          );
-                        })}
-                  </div>
-                </Link>
+                          })
+                        : data.urlImage.map((el: any, j: number) => {
+                            if (j >= 3) {
+                              return;
+                            }
+
+                            if (j === 2) {
+                              return (
+                                <div className="flex-1 relative" key={`${j}as`}>
+                                  <Image
+                                    src={el}
+                                    alt="sample2"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    objectPosition="center"
+                                  />
+                                  <div className="absolute w-full h-full bg-opacity-40 bg-[#000000]"></div>
+                                  <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18px] text-sayyo_wht leading-[22.5px]">
+                                    +2
+                                  </span>
+                                </div>
+                              );
+                            }
+                            return (
+                              <div className="flex-1 relative" key={`abx${j}`}>
+                                <Image
+                                  src={el}
+                                  alt="sample1"
+                                  layout="fill"
+                                  objectFit="cover"
+                                  objectPosition="center"
+                                />
+                              </div>
+                            );
+                          })}
+                    </div>
+                  </Link>
+                ) : (
+                  ""
+                )}
               </div>
               {/** applicnats */}
               {data.userApply.length === 0 ? (
