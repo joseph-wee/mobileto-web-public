@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  usePathname,
+  useRouter,
+} from 'next/navigation';
 
-import { apiGetDetailJob } from "@/api/api";
+import { apiGetDetailJob } from '@/api/api';
 import {
   ic_document,
   ic_pay,
   ic_pin,
   ic_share_dark,
   logo_sayyo_white,
-} from "@/assets";
-import SayyoMeta from "@/components/SayyoMeta";
+} from '@/assets';
+import SayyoMeta from '@/components/SayyoMeta';
 
 type apiRes = {};
 
@@ -43,17 +49,10 @@ const usePostPage = () => {
   /** 상세화면 호출 핸들러 */
   const apiHandler = (id: number) => {
     apiGetDetailJob(id).then((res) => {
-      console.log(res.data);
-      console.log(res.data.urlImage);
-      fetch(res.data.data.userApply[0].informationModel.avatar, {
-        method: "HEAD",
-      })
-        .then((response) => {
-          return response.headers.get("Content-type");
-        })
-        .then((contentType) => {
-          console.log(contentType);
-        });
+      // console.log(res.data);
+
+      // console.log(res.data.urlImage);
+
       setData(res.data.data);
       setResCode(res.data.responseCode);
     });
@@ -70,6 +69,34 @@ const usePostPage = () => {
     router.push("/sayyo");
     return <SayyoMeta />;
   }
+
+  //informationModel.avatar
+  //informationModel.name
+  //experience.location
+
+  /** informationModel.avatar 예외처리 함수 */
+  const avatarHandler = (info: any) => {
+    if (info?.avatar === null || info?.avatar === undefined) {
+      return "";
+    }
+    return info.avatar;
+  };
+
+  /** informationModel.name 예외처리 함수 */
+  const nameHandler = (info: any) => {
+    if (info?.name === null || info?.name === undefined) {
+      return "";
+    }
+    return info.name;
+  };
+
+  /** experience.location 예외처리 함수 */
+  const locationHandler = (exp: any) => {
+    if (exp?.location === null || exp?.location === undefined) {
+      return "";
+    }
+    return exp.location;
+  };
 
   return (
     <>
@@ -136,8 +163,13 @@ const usePostPage = () => {
                   <div className="mb-[6px] flex items-center gap-[8px]">
                     <Image src={ic_document} alt="ic_document" />
                     <div className="flex items-center gap-[6px] text-sayyo_l2 text-[14px] leading-[16.8px]">
-                      <span>{data.gender === "MAN" ? "Man" : "Woman"}</span>
-                      <div className="h-[10px] border-l-[1px] border-[#000000]/10" />
+                      {data.gender !== "NOMATTER" && (
+                        <>
+                          <span>{data.gender === "MAN" ? "Man" : "Woman"}</span>
+                          <div className="h-[10px] border-l-[1px] border-[#000000]/10" />
+                        </>
+                      )}
+
                       <span>{`${data.experience}`} year exp</span>
                       <div className="h-[10px] border-l-[1px] border-[#000000]/10" />
                       <span>{`${data.vacancy}`} people</span>
@@ -282,7 +314,7 @@ const usePostPage = () => {
                             <div key={`${j}546`} className="md767:hidden">
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -291,10 +323,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
@@ -328,7 +360,7 @@ const usePostPage = () => {
                             >
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -337,10 +369,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
@@ -374,7 +406,7 @@ const usePostPage = () => {
                             >
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -383,10 +415,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
@@ -420,7 +452,7 @@ const usePostPage = () => {
                             >
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -429,10 +461,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
@@ -466,7 +498,7 @@ const usePostPage = () => {
                             >
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -475,10 +507,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
@@ -512,7 +544,7 @@ const usePostPage = () => {
                             >
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -521,10 +553,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
@@ -555,7 +587,7 @@ const usePostPage = () => {
                             <div key={`${j}546`} className="hidden md427:block">
                               <div>
                                 <Image
-                                  src={i.informationModel.avatar}
+                                  src={avatarHandler(i.informationModel)}
                                   alt="sample"
                                   width={56}
                                   height={56}
@@ -564,10 +596,10 @@ const usePostPage = () => {
                       "
                                 />
                                 <div className="mb-[1px] text-center text-sayyo_l2 text-[12px] leading-[15.6px]">
-                                  {`${i.informationModel.name}`}
+                                  {`${nameHandler(i.informationModel)}`}
                                 </div>
                                 <div className="text-center text-sayyo_subtext text-[12px] leading-[15.6px]">
-                                  {`${i.experience.location}`}
+                                  {`${locationHandler(i.experience)}`}
                                 </div>
                               </div>
                             </div>
