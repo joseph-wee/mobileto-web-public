@@ -54,7 +54,7 @@ export default function Home() {
           {/** app qr code */}
           <div className="m-auto mb-[89px] pl-[86px] pr-[116.9px] w-[1180px] h-[179px] flex items-center bg-sayyo_wht rounded-[25px] shadow-[0px_4.972px_24.861px_0px_rgba(0,0,0,0.25)] md1920:mb-[4.635vw] md1920:pl-[4.479vw] md1920:pr-[6.089vw] md1920:w-[61.458vw] md1920:h-[9.322vw] md1920:rounded-[1.302vw] md720:pl-[26.56px] md720:pr-[26.1px] md720:w-[328px] md720:h-[49.6px] md720:rounded-[6.89px] md720:mb-[24.66px]">
             <a
-              href="https://apps.apple.com/us/app/sayyo/id6504123159"
+              href="https://play.google.com/store/apps/details?id=com.teambro.sayyo"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center mr-[59.9px] md1920:mr-[3.119vw] md720:mr-[13.98px]"
@@ -77,7 +77,7 @@ export default function Home() {
             </a>
             <div className="w-[1px] h-[94px] border-l-[1px] border-l-sayyo_bg_more mr-[73.5px] md1920:mr-[3.828vw] md1920:h-[4.895vw] md720:mr-[20.37px] md720:h-[26px]" />
             <a
-              href="https://play.google.com/store/apps/details?id=com.teambro.sayyo"
+              href="https://apps.apple.com/us/app/sayyo/id6504123159"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center"
