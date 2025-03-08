@@ -1,24 +1,18 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from "react";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import {
-  usePathname,
-  useRouter,
-} from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-import { apiGetDetailJob } from '@/api/api';
+import { apiGetDetailJob } from "@/api/api";
 import {
   ic_document,
   ic_pay,
   ic_pin,
   ic_share_dark,
   logo_sayyo_white,
-} from '@/assets';
-import SayyoMeta from '@/components/SayyoMeta';
+} from "@/assets";
+import SayyoMeta from "@/components/SayyoMeta";
 
 type apiRes = {};
 
@@ -170,8 +164,15 @@ const usePostPage = () => {
                         </>
                       )}
 
-                      <span>{`${data.experience}`} year exp</span>
-                      <div className="h-[10px] border-l-[1px] border-[#000000]/10" />
+                      {data.experience === -1 ? (
+                        <></>
+                      ) : (
+                        <>
+                          <span>{`${data.experience}`} year exp</span>
+                          <div className="h-[10px] border-l-[1px] border-[#000000]/10" />
+                        </>
+                      )}
+
                       <span>{`${data.vacancy}`} people</span>
                     </div>
                   </div>
