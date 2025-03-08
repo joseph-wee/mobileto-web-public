@@ -53,37 +53,51 @@ export default function Home() {
           </h3>
           {/** app qr code */}
           <div className="m-auto mb-[89px] pl-[86px] pr-[116.9px] w-[1180px] h-[179px] flex items-center bg-sayyo_wht rounded-[25px] shadow-[0px_4.972px_24.861px_0px_rgba(0,0,0,0.25)] md1920:mb-[4.635vw] md1920:pl-[4.479vw] md1920:pr-[6.089vw] md1920:w-[61.458vw] md1920:h-[9.322vw] md1920:rounded-[1.302vw] md720:pl-[26.56px] md720:pr-[26.1px] md720:w-[328px] md720:h-[49.6px] md720:rounded-[6.89px] md720:mb-[24.66px]">
-            <Image
-              src={icon_google_play}
-              alt="icon_google_play"
-              className="mr-[21.18px] md1920:mr-[1.103vw] md1920:w-[2.447vw] md720:mr-[6.03px] md720:w-[12.81px] md720:h-[14.13px]"
-            />
-            <Image
-              src={text_google_play}
-              alt="text_google_play"
-              className="mr-[98.73px] md1920:mr-[5.142vw] md1920:w-[10.885vw] md720:mr-[26.44px] md720:w-[57.7px] md720:h-[9.69px]"
-            />
-            <Image
-              src={img_qr_and}
-              alt="icon_qr_code"
-              className="mr-[59.9px] w-[69.1px] h-[69.1px] md1920:mr-[3.119vw] md1920:w-[3.645vw] md1920:h-[3.645vw] md720:mr-[13.98px] md720:w-[24.36px] md720:h-[24.36px]"
-            />
+            <a
+              href="https://apps.apple.com/us/app/sayyo/id6504123159"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center mr-[59.9px] md1920:mr-[3.119vw] md720:mr-[13.98px]"
+            >
+              <Image
+                src={icon_google_play}
+                alt="icon_google_play"
+                className="mr-[21.18px] md1920:mr-[0.853vw] md1920:w-[2.447vw] md720:mr-[6.03px] md720:w-[12.81px] md720:h-[14.13px]"
+              />
+              <Image
+                src={text_google_play}
+                alt="text_google_play"
+                className="mr-[98.73px] md1920:mr-[5.142vw] md1920:w-[10.885vw] md720:mr-[26.44px] md720:w-[57.7px] md720:h-[9.69px]"
+              />
+              <Image
+                src={img_qr_and}
+                alt="icon_qr_code"
+                className="w-[69.1px] h-[69.1px] md1920:w-[3.645vw] md1920:h-[3.645vw] md720:w-[24.36px] md720:h-[24.36px]"
+              />
+            </a>
             <div className="w-[1px] h-[94px] border-l-[1px] border-l-sayyo_bg_more mr-[73.5px] md1920:mr-[3.828vw] md1920:h-[4.895vw] md720:mr-[20.37px] md720:h-[26px]" />
-            <Image
-              src={icon_app_store}
-              alt="icon_app_store"
-              className="mr-[26px] md1920:mr-[1.354vw] md1920:w-[2.76vw] md720:mr-[7.2px] md720:w-[14.54px] md720:h-[14.39px]"
-            />
-            <Image
-              src={text_app_store}
-              alt="text_app_store"
-              className="mr-[65.06px] md1920:mr-[3.388vw] md1920:w-[9.739vw] md720:mr-[15.07px] md720:w-[51.79px] md720:h-[10.39px]"
-            />
-            <Image
-              src={img_qr_ios}
-              alt="icon_qr_code"
-              className="w-[69.1px] h-[69.1px] md1920:w-[3.645vw] md1920:h-[3.645vw] md720:w-[25.06px] md720:h-[25.05px]"
-            />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.teambro.sayyo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <Image
+                src={icon_app_store}
+                alt="icon_app_store"
+                className="mr-[26px] md1920:mr-[1.354vw] md1920:w-[2.76vw] md720:mr-[7.2px] md720:w-[14.54px] md720:h-[14.39px]"
+              />
+              <Image
+                src={text_app_store}
+                alt="text_app_store"
+                className="mr-[65.06px] md1920:mr-[3.388vw] md1920:w-[9.739vw] md720:mr-[15.07px] md720:w-[51.79px] md720:h-[10.39px]"
+              />
+              <Image
+                src={img_qr_ios}
+                alt="icon_qr_code"
+                className="w-[69.1px] h-[69.1px] md1920:w-[3.645vw] md1920:h-[3.645vw] md720:w-[25.06px] md720:h-[25.05px]"
+              />
+            </a>
           </div>
           {/** man, woman */}
           <div className="relative mx-auto mb-[238px] pt-[48px] max-w-[1180px] md1920:mb-[12.396vw] md1920:pt-[2.5vw] md1920:w-[61.458vw] md720:mb-[55.34px] md720:pt-[7.18px]">
