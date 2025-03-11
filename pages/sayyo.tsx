@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Image from "next/image";
 
 import SayyoMeta from "@/components/SayyoMeta";
@@ -31,6 +33,37 @@ import {
 import { Background, Footer, Header } from "../components";
 
 export default function Home() {
+  const [playStoreLink, setPlayStoreLink] = useState<string>(
+    "https://play.google.com/store/apps/details?id=com.teambro.sayyo"
+  );
+  const [appStoreLink, setAppStoreLink] = useState<string>(
+    "https://apps.apple.com/us/app/sayyo/id6504123159"
+  );
+
+  /** os 확인 후 맞는 링크 세팅 */
+  const linkSetter = () => {
+    const os = navigator.userAgent;
+
+    if (os.includes("Android")) {
+      setPlayStoreLink(`sayyo://`);
+      return;
+    }
+    if (
+      os.includes("iPhone") ||
+      os.includes("iPad") ||
+      os.includes("iPod") ||
+      os.includes("Mac")
+    ) {
+      setAppStoreLink(`sayyo://`);
+      return;
+    }
+  };
+
+  /** linkSetter 실행 */
+  useEffect(() => {
+    linkSetter();
+  }, []);
+
   return (
     <>
       <SayyoMeta />
