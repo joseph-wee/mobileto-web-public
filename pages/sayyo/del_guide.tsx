@@ -14,78 +14,82 @@ const del_guide = () => {
         {/** content */}
         <div className="mx-auto pl-[18px] pr-[18px] pt-[113px] pb-[40px] max-w-[1030px] box-content">
           <h4 className="mb-[34px] font-Roboto text-[28px] font-bold">
-            Account Deletion Guide
+            Hướng dẫn Xóa Tài khoản​
           </h4>
-          <p className="text-right">Last updated: 01/Sep/2024</p>
+          <p className="text-right">Cập nhật lần cuối: 01/09/2024​</p>
           <p className="text-[18px] font-light">
-            Important Things to Know Before Deleting Your Account
+            Những Điều Quan Trọng Cần Biết Trước Khi Xóa Tài Khoản
             <br />
-            Before proceeding with account deletion, please review the following
-            information:
-            <br />
-            <br />
-            1. Data Deletion:
-            <br />
-            Deleting your account will permanently erase all data associated
-            with it (e.g., profile information, posts, messages, in-app purchase
-            history).
-            <br />
-            Deleted data cannot be recovered. Please back up any important data
-            before proceeding.
+            Trước khi tiến hành xóa tài khoản, vui lòng xem xét các thông tin
+            sau:
             <br />
             <br />
-            2. Login Information:
-            <br />
-            After account deletion, you will no longer be able to access the app
-            using any login method, including Apple Login, Facebook Login, or
-            Google Login.
-            <br />
-            Even if you re-register, your previous account data will not be
-            restored.
+            1,Xóa Dữ Liệu:
             <br />
             <br />
-            <strong className="text-[20px] font-bold">
-              How to Delete Your Account
-            </strong>
+            Việc xóa tài khoản sẽ xóa vĩnh viễn tất cả dữ liệu liên quan (ví dụ:
+            thông tin hồ sơ, bài đăng, tin nhắn, lịch sử mua hàng trong ứng
+            dụng).​
+            <br />
+            Dữ liệu đã xóa không thể khôi phục. Vui lòng sao lưu bất kỳ dữ liệu
+            quan trọng nào trước khi tiếp tục.​
             <br />
             <br />
-            1. Go to Account Settings:
-            <br />
-            Open the app, tap on the menu button in the top right corner, and
-            navigate to [Settings]
+            2.Thông Tin Đăng Nhập:
             <br />
             <br />
-            2. Request Account Deletion:
+            Sau khi xóa tài khoản, bạn sẽ không thể truy cập ứng dụng bằng bất
+            kỳ phương thức đăng nhập nào, bao gồm Đăng nhập Apple, Đăng nhập
+            Facebook hoặc Đăng nhập Google.​
             <br />
-            In the Setting screen, tap on the [Withdraw] button.
-            <br />
-            <br />
-            3. Confirm Login Method:
-            <br />
-            Select the login method you used (Apple Login, Facebook Login, or
-            Google Login) and log in again.
-            <br />
-            <br />
-            4. Enter Password and Confirm:
-            <br />
-            To confirm the deletion, enter your password and tap [Confirm
-            Account Deletion].
-            <br />
-            <br />
-            5. Completion:
-            <br />
-            After confirmation, your account will be deleted, and you will be
-            automatically logged out. It may take up to 24 hours to fully
-            process the deletion.
+            Ngay cả khi bạn đăng ký lại, dữ liệu tài khoản trước đó của bạn sẽ
+            không được khôi phục.​
             <br />
             <br />
             <strong className="text-[20px] font-bold">
-              Need Further Assistance?
+              Cách Xóa Tài Khoản Của Bạn
             </strong>
             <br />
             <br />
-            If you need help with account deletion, please contact our support
-            team:
+            1.Đi tới Cài đặt Tài khoản:
+            <br />
+            <br />
+            Mở ứng dụng, nhấn vào nút menu ở góc trên bên phải và điều hướng đến
+            [Cài đặt].​
+            <br />
+            <br />
+            2.Yêu cầu Xóa Tài khoản:
+            <br />
+            <br />
+            Trong màn hình Cài đặt, nhấn vào nút [Rút].​
+            <br />
+            <br />
+            3.Xác nhận Phương thức Đăng nhập:
+            <br />
+            <br />
+            Chọn phương thức đăng nhập bạn đã sử dụng (Đăng nhập Apple, Đăng
+            nhập Facebook hoặc Đăng nhập Google) và đăng nhập lại.​
+            <br />
+            <br />
+            4.Nhập Mật khẩu và Xác nhận:
+            <br />
+            <br />
+            Để xác nhận việc xóa, nhập mật khẩu của bạn và nhấn [Xác nhận Xóa
+            Tài khoản].​
+            <br />
+            <br />
+            5.Hoàn tất:
+            <br />
+            <br />
+            Sau khi xác nhận, tài khoản của bạn sẽ bị xóa và bạn sẽ tự động đăng
+            xuất. Việc xóa có thể mất đến 24 giờ để xử lý hoàn toàn.​
+            <br />
+            <br />
+            <strong className="text-[20px] font-bold">Cần Hỗ trợ Thêm?</strong>
+            <br />
+            <br />
+            Nếu bạn cần trợ giúp về việc xóa tài khoản, vui lòng liên hệ với đội
+            ngũ hỗ trợ của chúng tôi:
             <br />
             <br />
             Email:{" "}
@@ -96,7 +100,7 @@ const del_guide = () => {
               cs.sayyo.viet@gmail.com
             </a>
             <br />
-            Operating Hours: Monday-Friday, 9:00 AM - 6:00 PM
+            Giờ làm việc: Thứ Hai - Thứ Sáu, 9:00 AM - 6:00 PM
           </p>
         </div>
 
