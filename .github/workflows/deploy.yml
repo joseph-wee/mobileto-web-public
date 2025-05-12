@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install
@@ -44,11 +44,8 @@ jobs:
         id: timestamp
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H-%M-%S-%3NZ')"
 
-      - name: remove node_modules
-        run: rm -rf node_modules
-
       - name: Generate deployment package # (1)
-        run: zip ./deploy.zip -r * .[^.]*
+        run: zip ./deploy.zip -r * .[^.]* node_modules
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
