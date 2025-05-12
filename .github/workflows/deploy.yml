@@ -45,7 +45,7 @@ jobs:
         run: echo "date=$(date +'%Y-%m-%dT%H-%M-%S-%3NZ')" >> $GITHUB_OUTPUT
 
       - name: Generate deployment package # (1)
-        run: zip -r ./deploy.zip
+        run: zip ./deploy.zip -r * .[^.]* node_modules
 
       # --- zip 파일 확인을 위함 ---
       - name: Upload deployment package artifact
