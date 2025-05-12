@@ -47,6 +47,14 @@ jobs:
       - name: Generate deployment package # (1)
         run: zip -r ./deploy.zip . -x "*.git/*" "*.github/*" "deploy.zip"
 
+      # --- zip 파일 확인을 위함 ---
+      - name: Upload deployment package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-package-${{ steps.timestamp.outputs.date }}
+          path: ./deploy.zip
+          retention-days: 5
+
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
         with:
