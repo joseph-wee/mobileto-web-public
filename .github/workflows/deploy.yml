@@ -1,18 +1,26 @@
 on:
+  # push할 때마다 액션 실행하게 하려면 # 제거
+  #push:
+  #branches:
+  #-develop
+
   workflow_dispatch: # 수동 실행 설정, 깃허브 액션 페이지에서 클릭으로 실행 가능
-
-permissions:
-  id-token: write
-  contents: read
-
-env:
-  AWS_REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
-  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-  AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+    inputs:
+      component:
+        description: "What component"
+        required: true
+        default: "web-dev"
+      profile:
+        description: "What profile"
+        required: true
+        default: "deploy-dev"
 
 jobs:
-  build-and-publish:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["20.x"]
 
     steps:
       - name: Checkout source code.
@@ -21,36 +29,40 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: ${{ matrix.node-version }}
           cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
-      - name: Run lint
-        run: yarn lint
 
       - name: Run build
         run: yarn build
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.GA_ID }}
 
-      - name: Upload static artifact
+      - name: Current timestamp
+        id: timestamp
+        run: echo "date=$(date +'%Y-%m-%dT%H-%M-%S-%3NZ')" >> $GITHUB_OUTPUT
+
+      - name: Generate deployment package # (1)
+        run: zip ./deploy.zip -r * .[^.]* node_modules
+
+      # --- zip 파일 확인을 위함 ---
+      - name: Upload deployment package artifact
         uses: actions/upload-artifact@v4
         with:
-          name: static-out
-          path: ./out
+          name: deploy-package-${{ steps.timestamp.outputs.date }}
+          path: ./deploy.zip
           retention-days: 5
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v22
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          role-session-name: github-actions-mobileto-web-deploy
-          aws-region: ${{ env.AWS_REGION }}
-
-      - name: Deploy static files to S3
-        run: aws s3 sync ./out s3://${{ env.AWS_S3_BUCKET }} --delete --cache-control "public,max-age=0,must-revalidate"
-
-      - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: mobileto-web
+          environment_name: Mobileto-web-env-1
+          version_label: "${{ steps.timestamp.outputs.date }}"
+          region: us-east-1
+          deployment_package: deploy.zip
+          wait_for_environment_recovery: 300
