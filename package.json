@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "PORT=8080 node_modules/next/dist/bin/next start",
+    "start": "npx serve@14 out -l 8080",
     "lint": "next lint"
   },
   "dependencies": {
