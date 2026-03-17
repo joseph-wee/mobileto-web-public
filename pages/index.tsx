@@ -17,31 +17,21 @@ export default function Home() {
     <>
       <Head>
         <title>Mobileto</title>
-        <meta name="description" content="mobileto web" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:image"
-          content="https://mobileto-files.s3.amazonaws.com/mobileto_og_1.png"
-        />
-        {/* <meta
-          property="og:image"
-          content="https://d1vnx0h70erqwv.cloudfront.net/_next/static/media/logo_mobileto.97fc625a.png"
-        /> */}
+
+        <meta property="og:url" content="https://mobileto.io/" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Mobileto" />
+        <meta property="og:description" content="mobileto web" />
+        <meta property="og:image" content="https://mobileto.io/img_og" />
 
-        {/* //카카오톡에 링크를 전송하면 보이는 내용을 text로 설정 */}
-        <meta property="og:description" content="Way to mobile" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="mobileto.io" />
+        <meta property="twitter:url" content="https://mobileto.io/" />
+        <meta name="twitter:title" content="Mobileto" />
+        <meta name="twitter:description" content="Way to mobile" />
+        <meta name="twitter:image" content="https://mobileto.io/img_og" />
 
-        {/** 1. 즐겨찾기 아이콘?  2.아이패드 아이콘?*/}
-        {/* <link rel="shortcut icon" href="http://test.repunch.io/favicon.ico" />
-        
-        <link
-          rel="apple-touch-startup-image"
-          href="http://test.repunch.io/favicon.ico"
-        /> */}
-
-        {/** 안드로이드 현재 폰에서는 되는중 탭안되면 고해상도 아이콘 소스코드 추가하면 될 듯? */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -59,12 +49,7 @@ export default function Home() {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" />
 
-        {/** 테마랑 타이틀 관련 컬러인 듯? 나중에 필요하면 참고해서 적용 */}
-        {/* <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ae4dvc" /> */}
       </Head>
       <div
         className="relative  text-[#FFFDFD] font-Inter overflow-hidden 
