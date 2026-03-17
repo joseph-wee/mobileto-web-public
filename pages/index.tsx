@@ -23,14 +23,14 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Mobileto" />
         <meta property="og:description" content="mobileto web" />
-        <meta property="og:image" content="https://mobileto.io/img_og" />
+        <meta property="og:image" content="https://mobileto.io/img_og.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="mobileto.io" />
         <meta property="twitter:url" content="https://mobileto.io/" />
         <meta name="twitter:title" content="Mobileto" />
         <meta name="twitter:description" content="Way to mobile" />
-        <meta name="twitter:image" content="https://mobileto.io/img_og" />
+        <meta name="twitter:image" content="https://mobileto.io/img_og.png" />
 
         <link
           rel="apple-touch-icon"
