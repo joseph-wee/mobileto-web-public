@@ -14,7 +14,6 @@
 
 - Next.js
 - Typescript
-- Axios
 - Tailwind CSS
 
 # 인프라
