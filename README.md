@@ -21,4 +21,4 @@
 
 - AWS S3
 - AWS CloudFront
-- AWS Route53
+- AWS Route 53
