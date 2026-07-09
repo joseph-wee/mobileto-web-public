@@ -13,7 +13,7 @@
 # 기술 스택 및 라이브러리
 
 - Next.js
-- Typescript
+- TypeScript
 - Tailwind CSS
 
 # 인프라
